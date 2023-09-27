@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Mobile Recharge" verbose="1"
+	parallel="tests" configfailurepolicy="continue" thread-count="5">
+
+	<test name="Common runner - Windows Chrome Browser">
+		<parameter name="testType" value="GUI" />
+		<parameter name="browserName" value="Chrome" />
+		<parameter name="browserVersion" value="ANY" />
+		<parameter name="platform" value="Windows" />
+		<parameter name="cucumber.tags" value="@mobileRecharge"/>
+		<classes>
+			<class name="runners.CommonRunner" />
+		</classes>
+	</test>
+</suite>

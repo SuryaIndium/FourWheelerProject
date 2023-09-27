@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite configfailurepolicy="continue" guice-stage="DEVELOPMENT" name="Failed suite [All Module Runner]" parallel="tests">
+  <test thread-count="5" name="Common runner - Windows Chrome Browser(failed)" parallel="tests">
+    <parameter name="cucumber.tags" value="@selfEmployedNegative"/>
+    <parameter name="or" value="AndroidLocators"/>
+    <parameter name="browserVersion" value="ANY"/>
+    <parameter name="testType" value="GUI"/>
+    <parameter name="browserName" value="androidnative"/>
+    <parameter name="platform" value="android"/>
+    <classes>
+      <class name="runners.CommonRunner">
+        <methods>
+          <include name="setUpBrowser"/>
+          <include name="setUpTest"/>
+          <include name="setUpClass"/>
+          <include name="tearDownBrowser"/>
+          <include name="scenario" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- runners.CommonRunner -->
+    </classes>
+  </test> <!-- Common runner - Windows Chrome Browser(failed) -->
+</suite> <!-- Failed suite [All Module Runner] -->

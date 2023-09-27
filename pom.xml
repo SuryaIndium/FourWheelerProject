@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.automation.qa</groupId>
+	<artifactId>Bajaj_Finserv_Four_Wheeler</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<!-- Project Info -->
+	<name>iSafe_BFL_Cucumber</name>
+	<description>This group or package will hold use-cases developed with Cucumber-Selenium BDD framework</description>
+	<url>http://www.google.com</url>
+
+	<properties>
+		<ttaf.ui.core.version>1.0.7-SNAPSHOT</ttaf.ui.core.version>
+		<maven.surefire.plugin>2.21.0</maven.surefire.plugin>
+		<aspectj.version>1.8.10</aspectj.version>
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyy_MM_dd_HH_mm_ss_a</maven.build.timestamp.format>
+	</properties>
+
+	<dependencies>
+		<!-- iSafe jar -->
+		<dependency>
+			<groupId>org.iSAFE</groupId>
+			<artifactId>isafe_BFL_BDD</artifactId>
+			<version>12.06.2023</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>7.6.0</version>
+		</dependency>
+
+		<!-- Apache Log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<!-- Cucumber JVM: Java -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+		<!-- Cucumber JVM: Java [old artifact/version] -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-cucumber4-jvm</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<!-- Cucumber JVM: TestNG -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<!-- JSON is a light-weight, language independent, data interchange format. -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20190722</version>
+		</dependency>
+		<!-- Provides pretty html reports for Cucumber. It works by generating 
+			html from the cucumber json file. -->
+		<dependency>
+			<groupId>net.masterthought</groupId>
+			<artifactId>cucumber-reporting</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+		<!-- A simple Java toolkit for JSON -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!-- The Apache PDFBox library is an open source Java tool for working 
+			with PDF documents. -->
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>2.0.19</version>
+		</dependency>
+		<!-- The Apache FontBox library is an open source Java tool to obtain low 
+			level information from font files. FontBox is a subproject of Apache PDFBox. -->
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>fontbox</artifactId>
+			<version>2.0.19</version>
+		</dependency>
+		<!-- Spice up your java: Automatic Resource Management, automatic generation 
+			of getters, setters, equals, hashCode and toString, and more! -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.12</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- JavaMail API -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<excludes>
+						<exclude>common</exclude>
+						<exclude>pageImplementation</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.20</version>
+				<configuration></configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Common profile -->
+	<profiles>
+		<profile>
+			<id>TestsAll</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.20</version>
+						<configuration>
+							<systemProperties>
+								<property>
+									<name>timeStamp</name>
+									<value>${maven.build.timestamp}</value>
+								</property>
+							</systemProperties>
+							<testFailureIgnore>true</testFailureIgnore>
+							<suiteXmlFiles>
+								<suiteXmlFile>src/test/resources/test_suite/TestsAll.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>net.masterthought</groupId>
+						<artifactId>maven-cucumber-reporting</artifactId>
+						<version>5.0.0</version>
+						<executions>
+							<execution>
+								<id>execution</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>generate</goal>
+								</goals>
+								<configuration>
+									<projectName>FourWheeler</projectName>
+									<!-- optional, per documentation set this to "true" to bypass generation 
+										of Cucumber Reports entirely, defaults to false if not specified -->
+									<skip>false</skip>
+									<!-- output directory for the generated report -->
+									<outputDirectory>TestResults/${maven.build.timestamp}</outputDirectory>
+									<!-- optional, defaults to outputDirectory if not specified -->
+									<inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
+									<jsonFiles>
+										<!-- supports wildcard or name pattern -->
+										<param>**/*.json</param>
+									</jsonFiles>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.1.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>java</goal>
+								</goals>
+								<configuration>
+									<mainClass>css.CucumberReportCSS</mainClass>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<repositories>
+		<repository>
+			<id>ttaf-ui-core-mvn-repo</id>
+			<name>TTAF Internal Repository</name>
+			<url>https://raw.github.com/dilshan5/ttaf-ui-core/mvn-repo/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>false</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+	<!--specify a remote location of where Maven can find new plugins -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>ttaf-ui-core-mvn-repo</id>
+			<name>TTAF Internal Repository</name>
+			<url>https://raw.github.com/dilshan5/ttaf-ui-core/mvn-repo/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>false</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+</project>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="All Module or Countries Runner" verbose="1"
+	parallel="tests" configfailurepolicy="continue" thread-count="5">
+
+	<test name="Common runner - Windows Chrome Browser">
+		<parameter name="testType" value="GUI" />
+		<parameter name="browserName" value="Chrome" />
+		<parameter name="browserVersion" value="106" />
+		<parameter name="platform" value="Windows" />
+		<parameter name="cucumber.tags" value="@tc003"/>
+		<parameter name="or" value="AndroidLocators"/>
+		<classes>
+			<class name="runners.CommonRunner" />
+		</classes>
+	</test>
+	<!-- <test name="Common runner - Windows Chrome Browser2">
+		<parameter name="testType" value="GUI" />
+		<parameter name="browserName" value="Chrome" />
+		<parameter name="browserVersion" value="106" />
+		<parameter name="platform" value="Windows" />
+		<parameter name="cucumber.tags" value="@demo2"/>
+		<parameter name="or" value="WebLocators"/>
+		<classes>
+			<class name="runners.CommonRunner2" />
+		</classes>
+	</test> -->
+</suite>
